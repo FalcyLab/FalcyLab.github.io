@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Falcy Lab, University of Idaho and USGS Idaho Cooperative Fish and Wildlife Research Unit: quantitative ecology, fish and wildlife management, and decision theory.">
+<title>Falcy Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,650;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+:root{
+  --bg:#FAFAF8; --ink:#1B2327; --muted:#5A666D; --rule:#DDE3E5; --accent:#1E5A6E; --eco:#3F7A4E; --quant:#2F5E9A; --tint:#EEF3F4; --note:#FFF6D6; --note-ink:#5B4A10;
+  --serif:"Literata", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme:dark;
+    --bg:#121719; --ink:#E4EAEC; --muted:#9AA7AD; --rule:#2A3438; --accent:#86BFD2; --eco:#8CC39A; --quant:#8FB2E6; --tint:#1A2226; --note:#2E2913; --note-ink:#E8D89A; }
+}
+:root[data-theme="dark"]{ color-scheme:dark;
+  --bg:#121719; --ink:#E4EAEC; --muted:#9AA7AD; --rule:#2A3438; --accent:#86BFD2; --eco:#8CC39A; --quant:#8FB2E6; --tint:#1A2226; --note:#2E2913; --note-ink:#E8D89A; }
+
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;padding-inline:20px}
+.wrap{max-width:760px;margin:0 auto}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+h1,h2,h3{font-weight:650;line-height:1.2;text-wrap:balance;margin:0}
+.label{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+.draft{font-family:var(--sans);font-size:13px;line-height:1.5;background:var(--note);color:var(--note-ink);padding:10px 14px;border-radius:6px;margin-top:16px}
+
+header.site{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--rule);z-index:5;margin-inline:-20px;padding-inline:20px}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;padding-block:14px}
+.brand{font-weight:650;font-size:19px;color:var(--ink);text-decoration:none}
+nav{display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--sans);font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+section{padding-block:56px 8px;scroll-margin-top:64px}
+section + section{border-top:1px solid var(--rule);margin-top:40px}
+section > h2{font-size:28px;margin-bottom:20px}
+
+.hero{padding-block:48px 0}
+.hero h1{font-size:clamp(30px,5.5vw,44px);letter-spacing:-.01em;max-width:18ch}
+.hero .sub{font-family:var(--sans);color:var(--muted);font-size:15px;margin-top:14px}
+
+.research{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start}
+.research p{margin:0 0 16px;max-width:62ch}
+.venn svg{width:100%;height:auto;display:block}
+.venn text{font-family:var(--sans);font-size:11px;fill:var(--ink)}
+.venn .h{font-weight:600;font-size:12px}
+.venn .c-eco{fill:var(--eco);fill-opacity:.14;stroke:var(--eco);stroke-width:1.5}
+.venn .c-q{fill:var(--quant);fill-opacity:.14;stroke:var(--quant);stroke-width:1.5}
+.venn .t-eco{fill:var(--eco)} .venn .t-q{fill:var(--quant)}
+.venn figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 32px;margin-top:28px}
+.facts ul{list-style:none;padding:0;margin:8px 0 0;font-size:15.5px}
+.facts li{padding-block:3px}
+
+.pi{display:grid;grid-template-columns:1fr;gap:6px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+.pi h3{font-size:22px}
+.role{font-family:var(--sans);font-size:14px;color:var(--muted)}
+.pi p{margin:8px 0 0;max-width:62ch}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--sans);font-size:14px;margin-top:10px}
+
+.group{margin-top:32px}
+.group > .label{display:block;margin-bottom:12px}
+.people{display:grid;gap:22px}
+.person h3{font-size:18px}
+.person p{margin:4px 0 0;font-size:16px;max-width:62ch}
+
+.alumni{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.alumni li{display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:4px 20px;padding-block:10px;border-top:1px solid var(--rule);font-size:15.5px}
+.alumni li:last-child{border-bottom:1px solid var(--rule)}
+.alumni .who{font-weight:500}
+.alumni .deg{font-family:var(--sans);font-size:13px;color:var(--muted);display:block}
+
+.pubs{list-style:none;padding:0;margin:0}
+.yr{font-family:var(--sans);font-weight:600;font-size:13px;color:var(--muted);margin:26px 0 8px;letter-spacing:.04em}
+.pubs li{padding-block:7px;font-size:15.5px;line-height:1.5;padding-left:1.4em;text-indent:-1.4em}
+.pubs b{font-weight:650}
+.pubs i{font-style:italic}
+.pdf{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.04em;margin-left:6px;padding:1px 6px;border:1px solid var(--rule);border-radius:3px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.pubnote{font-family:var(--sans);font-size:14px;color:var(--muted);margin:0 0 6px}
+
+.join p{max-width:62ch;margin:0 0 16px}
+.join .callout{background:var(--tint);padding:18px 20px;border-radius:6px;margin-top:8px}
+.join .callout p{margin:0}
+.join .callout p + p{margin-top:8px}
+
+.venn img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+.venn figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.thoughts{display:grid;gap:26px}
+.thoughts .theme{margin:18px 0 -10px;padding-top:18px;border-top:1px solid var(--rule)}
+.thoughts .theme:first-child{margin-top:0;padding-top:0;border-top:0}
+.thought h3{font-size:19px;margin-bottom:6px}
+.thought p{margin:0;max-width:62ch;font-size:16px}
+.thought .ref{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.thought .ref i{font-style:italic}
+.thought .ref a{font-weight:600;margin-left:4px}
+.pi{grid-template-columns:150px 1fr;column-gap:28px;align-items:start}
+.pi .photo{grid-row:1 / span 6;width:150px;height:auto;border-radius:6px}
+.pi > *:not(.photo){grid-column:2}
+.pike{margin:28px 0 0}
+.pike img{display:block;width:100%;height:auto;border-radius:6px}
+.pike figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:48px 40px;margin-top:48px;border-top:1px solid var(--rule)}
+
+@media (max-width:640px){
+  .pi{grid-template-columns:1fr}
+  .pi .photo{grid-row:auto;width:120px}
+  .pi > *:not(.photo){grid-column:1}
+
+  body{font-size:16px}
+  .research{grid-template-columns:1fr}
+  .venn{max-width:260px}
+  .alumni li{grid-template-columns:1fr}
+  section{padding-block:40px 4px}
+}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Falcy Lab</a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#ideas">What I think about</a>
+      <a href="#people">People</a>
+      <a href="#publications">Publications</a>
+      <a href="#join">Join the lab</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <h1>Research modelers interested in fish, wildlife, and decisions</h1>
+    <p class="sub">University of Idaho · Department of Fish and Wildlife Sciences · USGS Idaho Cooperative Fish and Wildlife Research Unit</p>
+  </div>
+
+  <section id="research" aria-labelledby="h-research">
+    <h2 id="h-research">Research</h2>
+    <div class="research">
+      <div>
+        <p>We bring rigorous, principled science to difficult ecological management problems. Management problems are uncertainty problems, so we focus on modeling what is known, and what isn’t, about the systems we study.</p>
+        <p>We are applied ecologists. We work on species with existing management needs, and management professionals are partners in every project. They bring knowledge of each species’ life history and the social context that shapes management actions.</p>
+        <p>We also use and develop decision theory. Our tools range from Bayesian belief networks that capture complex decisions to calculations of the value of new information. Decision theory keeps our applied ecology applied.</p>
+      </div>
+      <figure class="venn" style="margin:0">
+        <img src="img/venn.png" alt="Venn diagram of four overlapping circles: Ecology, Management, Quantification, and Decision Theory, with a star marked 'You are here' where all four overlap." width="700" height="717">
+      </figure>
+    </div>
+
+    <div class="facts">
+      <div>
+        <span class="label">Current systems</span>
+        <ul>
+          <li>White sturgeon</li>
+          <li>Burbot and mountain whitefish, Kootenai River</li>
+          <li>Snake River steelhead</li>
+          <li>Pygmy rabbits</li>
+          <li>Mule deer and mammalian predators</li>
+          <li>Southern mountain caribou</li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Recent partners and funders</span>
+        <ul>
+          <li>Idaho Department of Fish and Game</li>
+          <li>Kootenai Tribe of Idaho</li>
+          <li>U.S. Fish and Wildlife Service</li>
+          <li>USGS Northwest Climate Adaptation Science Center</li>
+          <li>Mitacs and HCTF (British Columbia)</li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Graduate courses</span>
+        <ul>
+          <li>Ecological Modeling (WLF 552)</li>
+          <li>Bayesian Analysis in Ecology (WLF 558)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="ideas" aria-labelledby="h-ideas">
+    <h2 id="h-ideas">What I think about</h2>
+    <p class="pubnote">Questions behind the papers I have led.</p>
+    <div class="thoughts">
+      <h3 class="theme label">Decisions under uncertainty</h3>
+      <article class="thought">
+        <h3>When is new information worth what it costs?</h3>
+        <p>Monitoring and research are expensive, and more data is not always a better decision. Value-of-information analysis shows when the cost of learning exceeds the reduction in the chance of a bad decision, so applied science can be planned as an optimization problem.</p>
+        <p class="ref">Falcy, M.R. 2018. A cost-optimization framework for planning applied environmental science. <i>BioScience</i> 68:912–922. <a href="papers/Falcy2018BioScience.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>How much precaution is enough?</h3>
+        <p>“Better safe than sorry” is not a decision rule. I pair Bayesian estimates of uncertainty with an explicit mathematical form of the precautionary principle, so conservation decisions become transparent and replicable. The right level of precaution is a societal value, not a statistical result.</p>
+        <p class="ref">Falcy, M.R. 2016. Conservation decision making: Integrating the precautionary principle with uncertainty. <i>Frontiers in Ecology and the Environment</i> 14:499–504. <a href="papers/Falcy2016Frontiers.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <h3 class="theme label">Salmon, hatcheries, and monitoring</h3>
+      <article class="thought">
+        <h3>Does the standard index of hatchery risk match the theory behind it?</h3>
+        <p>Managers index genetic risk from hatchery domestication with pHOS, the proportion of hatchery-origin spawners. The usual calculation overestimates risk when hatchery- and natural-origin fish spawn in different places or at different times. I derive a version that is consistent with the genetic model, along with its variance.</p>
+        <p class="ref">Falcy, M.R. 2026. Refining indices of risk from salmonid hatcheries. <i>North American Journal of Fisheries Management</i> 46:1–8. <a href="papers/Falcy2026NAJFM.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>Can spawner-recruit data show that hatcheries are harmless?</h3>
+        <p>No. The metrics pHOS and PNI index genetic risk that accumulates over generations, so they should not predict year-to-year recruitment. The offspring of hatchery fish are also counted as natural-origin recruits. I argue that Courter et al. (2022) confuse evolution with demography.</p>
+        <p class="ref">Falcy, M.R. 2023. Inferring hatchery effects using spawner-recruit data: Comment on Courter et al. (2022). <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 80:420–421. <a href="papers/Falcy2023CJFAS.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>How many fish does a snorkeler miss?</h3>
+        <p>We calibrated snorkel counts against mark-recapture estimates in 113 location-years of Oregon coastal streams. Snorkelers saw 63% of juvenile coho salmon, 47% of steelhead, and 39% of cutthroat trout, with high uncertainty. We give explicit expressions that convert a new snorkel count into a probability distribution of abundance, including habitat too shallow to snorkel.</p>
+        <p class="ref">Falcy, M.R., and R.J. Constable Jr. 2024. Quantifying uncertainty when extrapolating the relationship between snorkel counts and mark-recapture estimates of juvenile salmonids. <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 81:1279–1291. <a href="papers/FalcyConstable2024CJFAS.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>Did management or the ocean rebuild Oregon coast coho?</h3>
+        <p>We fit hierarchical state-space spawner-to-smolt models to 46 years of data from 18 populations. Freshwater productivity showed more evidence of decline than increase, so better ocean conditions most likely explain the recent rise in adults. Hatchery-origin spawners had about half the reproductive success of natural-origin spawners (0.51; 95% credible interval 0.19–0.89).</p>
+        <p class="ref">Falcy, M.R., and E. Suring. 2018. Detecting the effects of management regime shifts in dynamic environments using multi-population state-space models. <i>Biological Conservation</i> 221:34–43. <a href="papers/FalcySuring2018BiolCon.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>How do salmon choose where to spawn as their numbers change?</h3>
+        <p>Twenty-six years of spawning surveys along the Oregon coast show that the spatial distribution of Chinook salmon shifts with population size. The pattern fits a despotic distribution, where dominant or early-arriving fish exclude others from the best sites, rather than an ideal free distribution.</p>
+        <p class="ref">Falcy, M.R. 2015. Density-dependent habitat selection of spawning Chinook salmon: broad-scale evidence and implications. <i>Journal of Animal Ecology</i> 84:545–553. <a href="papers/Falcy2015JAE.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <h3 class="theme label">Viability, behavior, and landscapes</h3>
+      <article class="thought">
+        <h3>How do hurricanes and habitat loss combine to threaten an endangered mouse?</h3>
+        <p>Patch occupancy of the Alabama beach mouse rose from 0.16 to 0.67 within three summers after hurricanes Ivan and Katrina. A spatially explicit viability analysis shows that extinction risk rises nonlinearly with habitat loss and hurricane frequency, and back-to-back hurricanes are especially dangerous.</p>
+        <p class="ref">Falcy, M.R., and B.J. Danielson. 2014. Post-hurricane recovery and long-term viability of the Alabama beach mouse. <i>Biological Conservation</i> 178:28–36. <a href="papers/FalcyDanielson2014BiolCon.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>Can temperature reverse the effect of moonlight on a foraging mouse?</h3>
+        <p>Yes. When it is warm, the predator ensemble shifts from mammals and birds that see better than the mouse to ectotherms that see worse. Giving-up densities of Alabama beach mice show the effect of moonlight on foraging reversing with temperature.</p>
+        <p class="ref">Falcy, M.R., and B.J. Danielson. 2013. A complex relationship between moonlight and temperature on the foraging behavior of the Alabama beach mouse. <i>Ecology</i> 94:2632–2637. <a href="papers/FalcyDanielson2013Ecology.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>Do cotton rats limit where beach mice can live?</h3>
+        <p>After we removed hispid cotton rats, beach mice used the vacated habitat somewhat more, which fits a niche-constriction hypothesis. The evidence is weak, but removing cotton rats from habitat remnants right after a hurricane may lower extinction risk.</p>
+        <p class="ref">Falcy, M.R., and B.J. Danielson. 2013. Assessment of competitive release of endangered beach mouse (<i>Peromyscus polionotus ammobates</i>). <i>Journal of Mammalogy</i> 94:584–590. <a href="papers/FalcyDanielson2013JMamm.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+      <article class="thought">
+        <h3>Can a sink rescue a source?</h3>
+        <p>When disturbance periodically wrecks a source patch, the metapopulation can depend on a nearby sink to recolonize it. In a two-patch model, slowing the decline in the sink did more for persistence than speeding recovery in the source, and the effect grew with disturbance frequency.</p>
+        <p class="ref">Falcy, M.R., and B.J. Danielson. 2011. When sinks rescue sources in dynamic environments. In J. Liu, V. Hull, A.T. Morzillo, and J.A. Wiens, editors. <i>Sources, Sinks and Sustainability</i>. Cambridge University Press. <a href="papers/FalcyDanielson2011SourceSink.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="people" aria-labelledby="h-people">
+    <h2 id="h-people">People</h2>
+
+    <div class="pi">
+      <img class="photo" src="img/falcy-headshot.jpg" alt="Matt Falcy" width="480" height="462">
+      <span class="label">Principal investigator</span>
+      <h3>Matt Falcy</h3>
+      <div class="role">Associate Professor of Biometrics, University of Idaho<br>Assistant Unit Leader, USGS Idaho Cooperative Fish and Wildlife Research Unit</div>
+      <p>My team and I develop quantitative tools for difficult ecological problems. We use math, statistics, and numerical simulation to model fish and wildlife management systems. Before coming to Idaho in 2021, I spent more than a decade as a quantitative fish biologist with the Oregon Department of Fish and Wildlife.</p>
+      <div class="links">
+        <a href="https://www.uidaho.edu/cnr/faculty/falcy">University of Idaho profile</a>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label">Current lab members</span>
+      <div class="people">
+        <div class="person">
+          <h3>Hannah Stapleton</h3>
+          <div class="role">Research Associate</div>
+          <p>Builds population viability models for white sturgeon to inform management decisions.</p>
+        </div>
+        <div class="person">
+          <h3>Jacob Russell</h3>
+          <div class="role">PhD student · co-advised with Tim Link</div>
+          <p>Links hydrological models of snowpack and subterranean conditions to pygmy rabbit behavior and fitness through dynamic state variable models, and explores the fitness consequences of climate change.</p>
+        </div>
+        <div class="person">
+          <h3>Manuel (Manu) Carballo</h3>
+          <div class="role">MS student</div>
+          <p>Models selenium concentrations in the Kootenai River and their effects on burbot and white sturgeon. He combines spatio-temporal models with laboratory experiments on juvenile burbot survival.</p>
+        </div>
+        <div class="person">
+          <h3>Nate Nadal</h3>
+          <div class="role">MS student</div>
+          <p>Analyzes mountain whitefish diets in the Kootenai River. He uses simulation to test statistical procedures for detecting diet change after nutrient addition, drawing on stomach contents from about 2,000 fish.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <span class="label">Alumni</span>
+      <ul class="alumni">
+        <li><span class="who">Sarah Bassing<span class="deg">Postdoc</span></span><span>Assistant Professor, Montana State University</span></li>
+        <li><span class="who">Cameron Macias<span class="deg">PhD, co-advised</span></span><span>Wildlife Biologist, Lower Elwha Klallam Tribe</span></li>
+        <li><span class="who">Sam Foster<span class="deg">PhD</span></span><span>Ecosystems Biologist, BC Ministry of Water, Land and Resource Stewardship</span></li>
+        <li><span class="who">Joshua Heishman<span class="deg">MS</span></span><span>Fisheries Stock Assessment Biologist, Upper Skagit Indian Tribe</span></li>
+        <li><span class="who">Ryan Vosbigian<span class="deg">MS and post-MS</span></span><span>Biometrician, Quinault Indian Nation</span></li>
+        <li><span class="who">Briana Lubenau<span class="deg">MS, co-advised</span></span><span>Biologist, U.S. Fish and Wildlife Service</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications" aria-labelledby="h-pubs">
+    <h2 id="h-pubs">Recent lab publications</h2>
+    <p class="pubnote">* lab member.</p>
+    <ul class="pubs">
+      <li class="yr" aria-hidden="true">2026</li>
+      <li>Vosbigian*, R., J.H. Powell, and M.R. <b>Falcy</b>. Integrating data on a mixed stock anadromous fishery to estimate stock-specific escapement and mortalities. <i>North American Journal of Fisheries Management</i> 46:447–462.</li>
+      <li><b>Falcy</b>, M.R. Refining indices of risk from salmonid hatcheries. <i>North American Journal of Fisheries Management</i> 46:1–8.</li>
+      <li class="yr" aria-hidden="true">2025</li>
+      <li>Bassing*, S.B., D.E. Ausband, M.A. Mumma, S. Thompson, M.A. Hurley, and M.R. <b>Falcy</b>. Mammalian predator co-occurrence affected by prey and habitat more than competitor presence at multiple time scales. <i>Ecological Monographs</i> 95:e164.</li>
+      <li>Vosbigian*, R., A. Ballinger, T.E. Link, T. Copeland, and M.R. <b>Falcy</b>. Elevation mediates juvenile steelhead demographic response to stream temperature and flow. <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 82:1–16.</li>
+      <li>Harrison, L.A., K.S. Christie, C. Brandt, M.R. <b>Falcy</b>, R.A. Long, S.L. Gilbert, and J.L. Rachlow. Mechanism influencing thermal refuges and territory occupancy by pikas during summer and winter. <i>Arctic, Antarctic, and Alpine Research</i> 57:2502161.</li>
+      <li class="yr" aria-hidden="true">2024</li>
+      <li>Vosbigian*, R., L. Wendling*, T. Copeland, and M.R. <b>Falcy</b>. Cycles in adult steelhead length suggest interspecific competition in the North Pacific Ocean. <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 81:1666–1675.</li>
+      <li><b>Falcy</b>, M.R., and R.J. Constable Jr. Quantifying uncertainty when extrapolating the relationship between snorkel counts and mark-recapture estimates of juvenile salmonids. <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 81:1279–1291.</li>
+      
+    </ul>
+  </section>
+
+  <section id="join" class="join" aria-labelledby="h-join">
+    <h2 id="h-join">Join the lab</h2>
+    <p>We accept only fully funded graduate students. Openings are posted on the <a href="https://wfscjobs.tamu.edu/job-board/">Texas A&amp;M Wildlife and Fisheries job board</a>.</p>
+    <p>Graduate school is a serious commitment, often more than 40 hours a week. It takes optimism, curiosity, and integrity. Our research is applied, so it depends on good working relationships with the agency professionals who support it, and every deliverable must meet professional standards and deadlines.</p>
+    <p>Students work from the University of Idaho graduate office during business hours and coordinate any absences with me. I treat graduate students as research partners and encourage each of them to build their own scientific worldview through wide reading and discussion.</p>
+    <figure class="pike">
+      <img src="img/pike.jpg" alt="Matt Falcy holding a large northern pike at the edge of a lake." width="1400" height="1050" loading="lazy">
+    </figure>
+    <div class="callout">
+      <p><strong>Interested?</strong> Watch the job board for posted positions. If you have a question about an opening, email me at <span style="user-select:all">mfalcy@uidaho.edu</span> with a short note on your background and interests.</p>
+    </div>
+  </section>
+
+  <footer>Falcy Lab · University of Idaho, Moscow, Idaho</footer>
+</main>
+
+</body>
+</html>
