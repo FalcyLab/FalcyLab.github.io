@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="canonical" href="https://falcylab.github.io/">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-site-verification" content="NJzqL7qkliYLMestjbTfYR9oK-OdDmJmHnKMtL4Prrk" />
 <meta name="description" content="Falcy Lab, University of Idaho and USGS Idaho Cooperative Fish and Wildlife Research Unit: quantitative ecology, fish and wildlife management, and decision theory.">
 <title>Falcy Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +63,8 @@ section > h2{font-size:28px;margin-bottom:20px}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 32px;margin-top:28px}
 .facts ul{list-style:none;padding:0;margin:8px 0 0;font-size:15.5px}
 .facts li{padding-block:3px}
+.facts ul.bullets{list-style:disc;padding-left:1.1em}
+.facts ul.bullets li::marker{color:var(--muted)}
 
 .pi{display:grid;grid-template-columns:1fr;gap:6px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
 .pi h3{font-size:22px}
@@ -103,6 +107,10 @@ section > h2{font-size:28px;margin-bottom:20px}
 .thought .ref{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
 .thought .ref i{font-style:italic}
 .thought .ref a{font-weight:600;margin-left:4px}
+.thought.has-fig{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:20px;align-items:start}
+.thought-fig{margin:0}
+.thought-fig img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+.thought-fig figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
 .pi{grid-template-columns:150px 1fr;column-gap:28px;align-items:start}
 .pi .photo{grid-row:1 / span 6;width:150px;height:auto;border-radius:6px}
 .pi > *:not(.photo){grid-column:2}
@@ -112,6 +120,8 @@ section > h2{font-size:28px;margin-bottom:20px}
 footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:48px 40px;margin-top:48px;border-top:1px solid var(--rule)}
 
 @media (max-width:640px){
+  .thought.has-fig{grid-template-columns:1fr}
+  .thought-fig{max-width:300px}
   .pi{grid-template-columns:1fr}
   .pi .photo{grid-row:auto;width:120px}
   .pi > *:not(.photo){grid-column:1}
@@ -161,10 +171,11 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
     <div class="facts">
       <div>
         <span class="label">Current systems</span>
-        <ul>
-          <li>White sturgeon</li>
-          <li>Burbot and mountain whitefish, Kootenai River</li>
-          <li>Snake River steelhead</li>
+        <ul class="bullets">
+          <li>White sturgeon in Snake River</li>
+          <li>Steelhead in Snake River</li>
+          <li>Burbot in Kootenai River</li>
+          <li>Mountain whitefish in Kootenai River</li>
           <li>Pygmy rabbits</li>
           <li>Mammal predators and their ungulate prey</li>
           <li>Southern mountain caribou</li>
@@ -172,7 +183,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
       </div>
       <div>
         <span class="label">Recent partners and funders</span>
-        <ul>
+        <ul class="bullets">
           <li>Idaho Department of Fish and Game</li>
           <li>Kootenai Tribe of Idaho</li>
           <li>U.S. Fish and Wildlife Service</li>
@@ -183,8 +194,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
       <div>
         <span class="label">Graduate courses</span>
         <ul>
-          <li><a href="fliers/WLF5520_Flier.pdf" target="_blank" rel="noopener">Ecological Modeling</a> (WLF 5520)</li>
-          <li><a href="fliers/WLF5580_Flier.pdf" target="_blank" rel="noopener">Bayesian Analysis in Ecology</a> (WLF 5580)</li>
+          <li><a href="fliers/WLF5520_Flier.pdf" target="_blank" rel="noopener">Ecological Modeling</a></li>
+          <li><a href="fliers/WLF5580_Flier.pdf" target="_blank" rel="noopener">Bayesian Analysis in Ecology</a></li>
         </ul>
       </div>
     </div>
@@ -195,10 +206,16 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
     <p class="pubnote">Questions behind the papers I have led.</p>
     <div class="thoughts">
       <h3 class="theme label">Decisions under uncertainty</h3>
-      <article class="thought">
+      <article class="thought has-fig">
+        <div class="thought-text">
         <h3>Whose values should set research priorities?</h3>
         <p>Research on a harvested population is usually prioritized by what is most uncertain about the ecology. Adding managers’ objectives and society’s values through the expected value of perfect information changes which uncertainties matter, and the answer depends on the utility function used to represent risk and reward.</p>
         <p class="ref">Falcy, M.R. 2021. Using social values in the prioritization of research: Quantitative examples and generalizations. <i>Ecology and Evolution</i> 11:18000–18010. <a href="papers/Falcy2021EcoEvo.pdf" target="_blank" rel="noopener">PDF</a></p>
+        </div>
+        <figure class="thought-fig">
+          <img src="img/surfaceplot.jpg" alt="Colored three-dimensional surface plot with two peaks." width="900" height="505" loading="lazy">
+          <figcaption>Explained in Falcy (2021).</figcaption>
+        </figure>
       </article>
       <article class="thought">
         <h3>When is new information worth what it costs?</h3>
