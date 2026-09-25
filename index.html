@@ -66,7 +66,7 @@ section > h2{font-size:28px;margin-bottom:20px}
 .pi h3{font-size:22px}
 .role{font-family:var(--sans);font-size:14px;color:var(--muted)}
 .pi p{margin:8px 0 0;max-width:62ch}
-.links{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--sans);font-size:14px;margin-top:10px}
+.links{display:flex;flex-direction:column;align-items:flex-start;gap:4px;font-family:var(--sans);font-size:14px;margin-top:10px}
 
 .group{margin-top:32px}
 .group > .label{display:block;margin-bottom:12px}
@@ -130,7 +130,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
     <a class="brand" href="#top">Falcy Lab</a>
     <nav aria-label="Sections">
       <a href="#research">Research</a>
-      <a href="#ideas">What I think about</a>
+      <a href="#ideas">What I write about</a>
       <a href="#people">People</a>
       <a href="#publications">Publications</a>
       <a href="#join">Join the lab</a>
@@ -191,10 +191,15 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
   </section>
 
   <section id="ideas" aria-labelledby="h-ideas">
-    <h2 id="h-ideas">What I think about</h2>
+    <h2 id="h-ideas">What I write about</h2>
     <p class="pubnote">Questions behind the papers I have led.</p>
     <div class="thoughts">
       <h3 class="theme label">Decisions under uncertainty</h3>
+      <article class="thought">
+        <h3>Whose values should set research priorities?</h3>
+        <p>Research on a harvested population is usually prioritized by what is most uncertain about the ecology. Adding managers’ objectives and society’s values through the expected value of perfect information changes which uncertainties matter, and the answer depends on the utility function used to represent risk and reward.</p>
+        <p class="ref">Falcy, M.R. 2021. Using social values in the prioritization of research: Quantitative examples and generalizations. <i>Ecology and Evolution</i> 11:18000–18010. <a href="papers/Falcy2021EcoEvo.pdf" target="_blank" rel="noopener">PDF</a></p>
+      </article>
       <article class="thought">
         <h3>When is new information worth what it costs?</h3>
         <p>Monitoring and research are expensive, and more data is not always a better decision. Value-of-information analysis shows when the cost of learning exceeds the reduction in the chance of a bad decision, so applied science can be planned as an optimization problem.</p>
@@ -210,11 +215,6 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
         <h3>Does the standard index of hatchery risk match the theory behind it?</h3>
         <p>Managers index genetic risk from hatchery domestication with pHOS, the proportion of hatchery-origin spawners. The usual calculation overestimates risk when hatchery- and natural-origin fish spawn in different places or at different times. I derive a version that is consistent with the genetic model, along with its variance.</p>
         <p class="ref">Falcy, M.R. 2026. Refining indices of risk from salmonid hatcheries. <i>North American Journal of Fisheries Management</i> 46:1–8. <a href="papers/Falcy2026NAJFM.pdf" target="_blank" rel="noopener">PDF</a></p>
-      </article>
-      <article class="thought">
-        <h3>Can spawner-recruit data show that hatcheries are harmless?</h3>
-        <p>No. The metrics pHOS and PNI index genetic risk that accumulates over generations, so they should not predict year-to-year recruitment. The offspring of hatchery fish are also counted as natural-origin recruits. I argue that Courter et al. (2022) confuse evolution with demography.</p>
-        <p class="ref">Falcy, M.R. 2023. Inferring hatchery effects using spawner-recruit data: Comment on Courter et al. (2022). <i>Canadian Journal of Fisheries and Aquatic Sciences</i> 80:420–421. <a href="papers/Falcy2023CJFAS.pdf" target="_blank" rel="noopener">PDF</a></p>
       </article>
       <article class="thought">
         <h3>How many fish does a snorkeler miss?</h3>
@@ -265,7 +265,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
       <div class="role">Associate Professor of Biometrics, University of Idaho<br>Assistant Unit Leader, USGS Idaho Cooperative Fish and Wildlife Research Unit</div>
       <p>My team and I develop quantitative tools for difficult ecological problems. We use math, statistics, and numerical simulation to model fish and wildlife management systems. Before coming to Idaho in 2021, I spent more than a decade as a quantitative fish biologist with the Oregon Department of Fish and Wildlife.</p>
       <div class="links">
-        <a href="https://www.uidaho.edu/cnr/faculty/falcy">University of Idaho profile</a>
+        <a href="https://www.uidaho.edu/people/mfalcy">University of Idaho profile</a>
+        <a href="cv/Falcy_CV.pdf" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
       </div>
     </div>
 
@@ -326,6 +327,35 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
     </ul>
   </section>
 
+  <section id="in-progress" aria-labelledby="h-prog">
+    <h2 id="h-prog">In review and in preparation</h2>
+    <p class="pubnote">As of September 25, 2026. * lab member.</p>
+    <ul class="pubs">
+      <li class="yr" aria-hidden="true">In review</li>
+      <li>Russell*, J., R.A. Vosbigian*, and M.R. <b>Falcy</b>. Misinformed by non-informative priors: Jeffreys’ method ensures consistent Bayesian inference. <i>Ecology</i>.</li>
+      <li><b>Falcy</b>, M.R. Data-driven decision-making with novel probability density functions. <i>Methods in Ecology and Evolution</i>.</li>
+      <li><b>Falcy</b>, M.R., and C.M. Lorion. Decision-making processes. In <i>Inland Fisheries Management in North America</i>, 4th edition.</li>
+      <li>Heishman*, J., A. Black, S. Wilson, and M.R. <b>Falcy</b>. An open-population demographic analysis of burbot in the Kootenai River to inform fishery management. <i>Transactions of the American Fisheries Society</i>.</li>
+      <li>Mumma, M., E. Roche, Z. Fogel, J. Tebbenkamp, J. Struthers, M. Parsons, K. Oelrich, M. Campbell, M.R. <b>Falcy</b>, and S. Roberts. Estimating gray wolf (<i>Canis lupus</i>) abundance using close-kin data and approximate Bayesian computation. <i>Ecological Applications</i>.</li>
+      <li class="yr" aria-hidden="true">In revision</li>
+      <li>Sabal, M.C., E. Leonetti, M.R. <b>Falcy</b>, P. Stevens, J. Anthony, and C. Lorion. Forecasting spring Chinook salmon abundances amid a changing climate on the Umpqua River, Oregon. <i>Canadian Journal of Fisheries and Aquatic Sciences</i>.</li>
+      <li>Bassing*, S.B., D.E. Ausband, M.A. Mumma, J. Baumgardt, S. Thompson, M. Hurley, and M.R. <b>Falcy</b>. Disentangling the web of species interactions in a multi-predator, multi-prey community. <i>Ecology</i>.</li>
+      <li class="yr" aria-hidden="true">In preparation</li>
+      <li>Vosbigian*, R.A., M. Dobos, and M.R. <b>Falcy</b>. An age- and time-specific space-for-time mark-recapture model. Target: <i>Methods in Ecology and Evolution</i>.</li>
+      <li>Vosbigian*, R., D.W. Whitney, J.M. DuPont, and M.R. <b>Falcy</b>. Evaluating the influence of bag and size limits on harvest of steelhead. Target: <i>North American Journal of Fisheries Management</i>.</li>
+      <li>Heishman*, J., S. Wilson, A. Black, N. Jensen, and M.R. <b>Falcy</b>. Beyond put and take: A quantitative framework for population-level decision-making. Target: <i>Fisheries</i>.</li>
+      <li>Farris*, T., R.A. Vosbigian*, T. Copeland, M. Dobos, and M.R. <b>Falcy</b>. Snake River steelhead ocean survival driven by early ocean conditions and smolt size.</li>
+      <li>Ash*, J., C. Caudill, and M.R. <b>Falcy</b>. The evolution of philopatry on spatially structured and temporally trending landscapes. Target: <i>Ecography</i>.</li>
+      <li>Foster*, S., A. Ford, and M.R. <b>Falcy</b>. Caught in a time trap: Animal activity in the Anthropocene. Target: <i>Frontiers in Ecology and the Environment</i>.</li>
+      <li>Foster*, S., A. Ford, and M.R. <b>Falcy</b>. Community reordering along disturbance gradients: Roads filter mammal composition. Target: <i>Canadian Journal of Zoology</i>.</li>
+      <li>Foster*, S., A. Ford, and M.R. <b>Falcy</b>. Seasonal and bottom-up processes drive weekly habitat use of mule deer more than perceived predation risks. Target: <i>Journal of Wildlife Management</i>.</li>
+      <li>Macias*, C.L., M.R. <b>Falcy</b>, B.C. Augustine, J.R. Adams, S. Cendejas-Zarelli, S.H. Williams, L.M. Elbroch, K.A. Sager-Fradkin, and L.P. Waits. Evaluating new abundance estimators in real-world applications: Cameras and DNA yield comparable density estimates for cryptic carnivores in western Washington State. Target: <i>Journal of Wildlife Management</i>.</li>
+      <li>Macias*, C.L., M.R. <b>Falcy</b>, T. Levi, L.M. Elbroch, K.A. Sager-Fradkin, and L.P. Waits. Prey composition and dietary overlap of bobcats and cougars using GPS collar data and DNA metabarcoding in western Washington State. Target: <i>Environmental DNA</i>.</li>
+      <li>Macias*, C.L., M.R. <b>Falcy</b>, J.R. Adams, L.M. Elbroch, K.A. Sager-Fradkin, and L.P. Waits. Evaluating fecal DNA preservation and extraction methods for noninvasive wildlife genetic sampling. Target: <i>Conservation Genetics Resources</i>.</li>
+      <li>Harrison, L.A., K.S. Christie, J.L. Rachlow, and M.R. <b>Falcy</b>. Pika behavioral response to climate during the summer foraging season at high latitudes. Target: <i>Journal of Mammalogy</i>.</li>
+    </ul>
+  </section>
+
   <section id="join" class="join" aria-labelledby="h-join">
     <h2 id="h-join">Join the lab</h2>
     <p>We accept only fully funded graduate students. Openings are posted on the <a href="https://wfscjobs.tamu.edu/job-board/">Texas A&amp;M Wildlife and Fisheries job board</a>.</p>
@@ -335,7 +365,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
       <img src="img/pike.jpg" alt="Matt Falcy holding a large northern pike at the edge of a lake." width="1400" height="1050" loading="lazy">
     </figure>
     <div class="callout">
-      <p><strong>Interested?</strong> Watch the job board for posted positions. If you have a question about an opening, email me at <span style="user-select:all">mfalcy@uidaho.edu</span> with a short note on your background and interests.</p>
+      <p><strong>Interested?</strong> Watch the job board for posted positions. If you have a question about a posted opening, email me at <span style="user-select:all">mfalcy@uidaho.edu</span> with a short note on your background and interests.</p>
     </div>
   </section>
 
