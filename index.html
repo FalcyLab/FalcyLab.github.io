@@ -75,6 +75,8 @@ section > h2{font-size:28px;margin-bottom:20px}
 .group{margin-top:32px}
 .group > .label{display:block;margin-bottom:12px}
 .people{display:grid;gap:22px}
+.person{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:start}
+.person .headshot{width:96px;height:96px;border-radius:6px;object-fit:cover;display:block}
 .person h3{font-size:18px}
 .person p{margin:4px 0 0;font-size:16px;max-width:62ch}
 
@@ -130,6 +132,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
   .research{grid-template-columns:1fr}
   .venn{max-width:260px}
   .alumni li{grid-template-columns:1fr}
+  .person{grid-template-columns:72px minmax(0,1fr);gap:14px}
+  .person .headshot{width:72px;height:72px}
   section{padding-block:40px 4px}
 }
 </style>
@@ -297,24 +301,44 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding-block:4
       <span class="label">Current lab members</span>
       <div class="people">
         <div class="person">
+          <img class="headshot" src="img/hannah-headshot.jpg" alt="Hannah Stapleton" width="320" height="320" loading="lazy">
+          <div class="bio">
           <h3>Hannah Stapleton</h3>
           <div class="role">Research Associate</div>
           <p>Builds population viability models for white sturgeon to inform management decisions.</p>
+          </div>
         </div>
         <div class="person">
+          <img class="headshot" src="img/jacob-headshot.jpg" alt="Jacob Russell" width="320" height="320" loading="lazy">
+          <div class="bio">
           <h3>Jacob Russell</h3>
           <div class="role">PhD student · co-advised with Tim Link</div>
           <p>Links hydrological models of snowpack and subterranean conditions to pygmy rabbit behavior and fitness through dynamic state variable models, and explores the fitness consequences of climate change.</p>
+          </div>
         </div>
         <div class="person">
+          <img class="headshot" src="img/manu-headshot.jpg" alt="Manuel Carballo" width="320" height="320" loading="lazy">
+          <div class="bio">
           <h3>Manuel (Manu) Carballo</h3>
           <div class="role">MS student</div>
           <p>Models selenium concentrations in the Kootenai River and their effects on burbot and white sturgeon. He combines spatio-temporal models with laboratory experiments on juvenile burbot survival.</p>
+          </div>
         </div>
         <div class="person">
+          <img class="headshot" src="img/nate-headshot.jpg" alt="Nate Nadal" width="320" height="320" loading="lazy">
+          <div class="bio">
           <h3>Nate Nadal</h3>
           <div class="role">MS student</div>
           <p>Analyzes mountain whitefish diets in the Kootenai River. He uses simulation to test statistical procedures for detecting diet change after nutrient addition, drawing on stomach contents from about 2,000 fish.</p>
+          </div>
+        </div>
+        <div class="person">
+          <img class="headshot" src="img/tamsen-headshot.jpg" alt="Tamsen Farris" width="320" height="320" loading="lazy">
+          <div class="bio">
+          <h3>Tamsen Farris</h3>
+          <div class="role">Undergraduate researcher · Modeling and Data Science</div>
+          <p>Working on the factors driving steelhead ocean survival.</p>
+          </div>
         </div>
       </div>
     </div>
